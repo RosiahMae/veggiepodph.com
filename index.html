@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Veggiepod | Eat Clean. Anytime. Anywhere.</title>
+  <link rel="icon" href="VPLogo.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    :root {
+      --green-dark: #0A5633;
+      --orange: #F78706;
+      --lime: #98CF2D;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background-color: #fff;
+      color: var(--green-dark);
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: var(--green-dark);
+      padding: 1rem 2rem;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: var(--lime);
+    }
+
+    .hero-section {
+      height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+
+    .hero-section img.hero-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .hero-overlay {
+      background-color: rgba(10, 86, 51, 0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      z-index: 1;
+    }
+
+    .hero-logo img {
+      width: 12rem;
+      height: auto;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      color: var(--orange);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+      color: var(--lime);
+      font-size: 1.2rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    section h2 {
+      color: var(--orange);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    ul.benefits {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul.benefits li {
+      margin: 0.5rem 0;
+    }
+
+    .order-now {
+      background-color: var(--orange);
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-align: center;
+      margin: 2rem auto;
+      width: fit-content;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .order-now:hover {
+      background-color: var(--lime);
+      color: var(--green-dark);
+      cursor: pointer;
+    }
+
+    .gallery-grid, .reviews-grid, .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .gallery-grid img, .reviews-grid img, .videos-grid video {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .review-item {
+      text-align: center;
+    }
+
+    .review-item p {
+      margin-top: 0.5rem;
+      font-style: italic;
+    }
+
+    .floating-order {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--orange);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .floating-order:hover {
+      background-color: var(--lime);
+      color: var(--green-dark);
+    }
+
+    footer {
+      background-color: var(--green-dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .socials a {
+  margin: 0 1rem;
+  color: var(--black);
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+    .socials a:hover {
+      color: var(--orange);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav {
+        margin-top: 1rem;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.2rem;
+      }
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      .hero-content p {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Veggiepod</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero-section">
+    <img src="BGIMAGE2.png" alt="Hero Background" class="hero-background" />
+    <div class="hero-overlay">
+      <div class="hero-content" data-aos="zoom-in">
+        <div class="hero-logo">
+          <img src="VPLogo.png" alt="Veggiepod Logo" />
+        </div>
+        <h1>Welcome to Veggiepod</h1>
+        <p>Eat Clean. Anytime. Anywhere.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section about" data-aos="fade-up">
+    <h2>Why Veggiepod?</h2>
+    <p>Too busy to eat healthy? You’re not alone. That’s exactly why Veggiepod was created — to bring fresh, nutritious meals to people on the go.</p>
+    <p>Our salad cups are:</p>
+    <ul class="benefits">
+      <li>✅ Ready to grab and go</li>
+      <li>✅ Packed with real, fresh ingredients</li>
+      <li>✅ Fiber-rich to keep you full longer</li>
+    </ul>
+  </section>
+
+  <section id="gallery" class="section" data-aos="fade-up">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="1.png" alt="Salad Variety 1">
+      <img src="2.png" alt="Salad Variety 2">
+      <img src="3.png" alt="Salad Variety 3">
+    </div>
+  </section>
+
+  <section id="reviews" class="section" data-aos="fade-left">
+    <h2>What Our Customers Say</h2>
+    <div class="reviews-grid">
+      <div class="review-item">
+        <img src="CUSTO.png" alt="Happy Customer 1">
+        <p>"Super fresh and so convenient! Love it."</p>
+      </div>
+      <div class="review-item">
+        <img src="CUSTO 2.png" alt="Happy Customer 2">
+        <p>"Perfect for my busy mornings. Highly recommend!"</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" class="section" data-aos="fade-left">
+    <h2>Weekly Schedule</h2>
+    <p><strong>Pre-orders:</strong> Monday to Friday</p>
+    <p><strong>Production & Delivery:</strong> Saturday and Sunday<br>8:00 AM - 5:00 PM</p>
+  </section>
+
+  <section id="contact" class="section" data-aos="fade-right">
+    <h2>Let’s Connect</h2>
+    <p><strong>Phone:</strong> 093-5817-5218</p>
+    <p><strong>Email:</strong> veggiepod05@gmail.com</p>
+    <p><strong>Follow us:</strong></p>
+   <div class="socials">
+  <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+  <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+  <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
+</div>
+
+    <p style="margin-top:1rem">#VeggieVibes</p>
+    <div class="order-now" data-aos="zoom-in">Order Now on Facebook or Instagram!</div>
+  </section>
+
+  <footer data-aos="zoom-in">
+    <p>&copy; 2025 Veggiepod. All rights reserved.</p>
+  </footer>
+
+  <a href="#contact" class="floating-order">Order Now</a>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+
+</body>
+</html>
